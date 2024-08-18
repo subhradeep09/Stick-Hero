@@ -1,0 +1,168 @@
+/* General Body and HTML Styles */
+body, html {
+  height: 100%;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+  background: #F5F7FA;
+  font-family: 'Open Sans', sans-serif;
+}
+
+/* Container Styles */
+.container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative; /* Ensure the container has relative positioning */
+}
+
+/* Main Section Styles */
+.main {
+  flex-grow: 1;
+}
+
+/* Footer Styles */
+.footer {
+  z-index: 10; /* Increased z-index */
+  --footer-background: #ED5565;
+  position: fixed; /* Changed to fixed positioning */
+  bottom: 0; /* Stick to the bottom */
+  left: 0; /* Stretch across the bottom */
+  right: 0; /* Stretch across the bottom */
+  height: 1rem; /* Adjust as needed */
+  background: var(--footer-background);
+  display: grid;
+  grid-template-columns: 1fr auto;
+  grid-gap: 2rem; /* Reduced gap for better fit */
+  padding: 1rem; /* Reduced padding */
+}
+
+.bubbles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1rem;
+  background: var(--footer-background);
+  filter: url("#blob");
+}
+
+.bubble {
+  position: absolute;
+  left: var(--position, 50%);
+  background: var(--footer-background);
+  border-radius: 100%;
+  animation: bubble-size var(--time, 4s) ease-in infinite var(--delay, 0s),
+    bubble-move var(--time, 4s) ease-in infinite var(--delay, 0s);
+  transform: translate(-50%, 100%);
+}
+
+.content {
+  z-index: 11; /* Ensure content is above footer bubbles */
+  display: grid;
+  grid-template-columns: 1fr auto;
+  grid-gap: 2rem; /* Reduced gap */
+  padding: 1rem; /* Reduced padding */
+  background: var(--footer-background);
+}
+
+.content a, .content h3 {
+  color: #F5F7FA;
+  text-decoration: none;
+}
+
+.content b {
+  color: white;
+}
+
+.content h3 {
+  margin: 0;
+}
+
+.content > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.content > div > div {
+  margin: 0.15rem 0; /* Reduced margin */
+}
+
+.content > div > div > * {
+  margin-right: 0.3rem; /* Reduced spacing between items */
+}
+
+
+/* Bubble Animations */
+@keyframes bubble-size {
+  0%, 75% {
+    width: var(--size, 4rem);
+    height: var(--size, 4rem);
+  }
+  100% {
+    width: 0rem;
+    height: 0rem;
+  }
+}
+
+@keyframes bubble-move {
+  0% {
+    bottom: -4rem;
+  }
+  100% {
+    bottom: var(--distance, 10rem);
+  }
+}
+
+/* Game-specific Styles */
+#score {
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  font-size: 2em;
+  font-weight: 900;
+}
+
+#introduction {
+  width: 200px;
+  height: 150px;
+  position: absolute;
+  font-weight: 600;
+  font-size: 0.8em;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  text-align: center;
+  transition: opacity 2s;
+}
+
+#restart {
+  width: 120px;
+  height: 120px;
+  position: absolute;
+  border-radius: 50%;
+  color: white;
+  background-color: red;
+  border: none;
+  font-weight: 700;
+  font-size: 1.2em;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  display: none;
+  cursor: pointer;
+}
+
+#perfect {
+  position: absolute;
+  opacity: 0;
+  transition: opacity 2s;
+}
+
+.content {
+  text-align: center; /* Center the content */
+}
+.content h3 {
+  margin-top: -10px; /* Move the <h3> element up */
+  font-size: 14px; /* Optional: Adjust the font size if needed */
+}
