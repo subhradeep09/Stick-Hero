@@ -163,6 +163,27 @@ body, html {
   text-align: center; /* Center the content */
 }
 .content h3 {
-  margin-top: -10px; /* Move the <h3> element up */
-  font-size: 14px; /* Optional: Adjust the font size if needed */
+  margin-top: -10px; /* Default for larger screens */
+  font-size: 14px; /* Default font size */
+}
+
+@media (max-width: 768px) {
+  .content h3 {
+    margin-top: -8px; /* Slightly adjust the margin for tablets and small screens */
+    font-size: 12px; /* Smaller font size for tablets and small screens */
+  }
+}
+
+@media (max-width: 480px) {
+  .content h3 {
+    margin-top: -5px; /* Further adjust the margin for mobile devices */
+    font-size: 11px; /* Smaller font size for mobile devices */
+  }
+}
+
+@media (max-width: 320px) {
+  .content h3 {
+    margin-top: -3px; /* Further adjust the margin for mobile devices */
+    font-size: 9px; /* Smaller font size for mobile devices */
+  }
 }
